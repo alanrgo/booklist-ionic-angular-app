@@ -1,0 +1,7 @@
+{
+  "name": "ionic-angular-frontend-booklist",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
