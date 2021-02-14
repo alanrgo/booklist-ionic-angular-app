@@ -1,22 +1,51 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { spyOnClass } from 'jasmine-es6-spies';
+import { of } from 'rxjs';
+import { DataService } from '../services/data.service';
 
 import { HomePage } from './home.page';
 
 describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
+  let dataService: jasmine.SpyObj<DataService>;
+  let mockedBooks = [
+    {
+      title: "book 1",
+      description: "book 1 description"
+    },
+    {
+      title: "book 2",
+      description: "book 2 description"
+    },
+    {
+      title: "book 3",
+      description: "book 3 description"
+    },
+  ]
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot()],
+      providers: [
+        {
+          provide: DataService,
+          useFactory: () => spyOnClass(DataService)
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   }));
+
+  beforeEach(() => {
+    dataService = TestBed.inject(DataService) as jasmine.SpyObj<DataService>;
+    dataService.getBooks$.and.returnValue(of(mockedBooks))
+    fixture.detectChanges();
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
