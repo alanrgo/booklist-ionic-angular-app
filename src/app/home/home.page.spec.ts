@@ -26,4 +26,9 @@ describe('HomePage', () => {
     let header = fixture.nativeElement.querySelector('[data-test="book-list-header"');
     expect(header.innerText).toEqual("Book List");
   })
+
+  it('should render the book list app name', () => {
+    let navBar = fixture.nativeElement.querySelector('[data-test="book-list-nav"');
+    expect(navBar.innerText).toEqual("iBook");
+  })
 });
