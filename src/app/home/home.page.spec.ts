@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { spyOnClass } from 'jasmine-es6-spies';
 import { of } from 'rxjs';
+import { BookFixture } from 'src/fixtures/books';
 import { DataService } from '../services/data.service';
 
 import { HomePage } from './home.page';
@@ -10,20 +11,7 @@ describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
   let dataService: jasmine.SpyObj<DataService>;
-  let mockedBooks = [
-    {
-      title: "book 1",
-      description: "book 1 description"
-    },
-    {
-      title: "book 2",
-      description: "book 2 description"
-    },
-    {
-      title: "book 3",
-      description: "book 3 description"
-    },
-  ]
+  let mockedBooks = BookFixture;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
