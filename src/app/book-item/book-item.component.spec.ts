@@ -41,4 +41,16 @@ describe('BookItemComponent', () => {
     expect(id.innerText).toEqual("BookID: 1");
   })
 
+  it('should render edit button', () => {
+    let editButton = fixture.nativeElement.querySelector('[data-test="book-item-edit"]');
+    expect(editButton).toBeTruthy();
+    expect(editButton.querySelector('[data-test="book-item-edit-icon"]')).toBeTruthy();
+  })
+
+  it('should render edit button', () => {
+    let editButton = fixture.nativeElement.querySelector('[data-test="book-item-remove"]');
+    expect(editButton).toBeTruthy();
+    expect(editButton.querySelector('[data-test="book-item-remove-icon"]')).toBeTruthy();
+  })
+
 });
