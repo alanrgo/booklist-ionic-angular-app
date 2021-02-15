@@ -53,4 +53,9 @@ describe('HomePage', () => {
     let books = fixture.nativeElement.querySelectorAll('[data-test="book-item"]');
     expect(books.length).toEqual(3);
   })
+
+  it('should display create button', () => {
+    let button = fixture.nativeElement.querySelectorAll('[data-test="create-book-item-button"]');
+    expect(button).toBeTruthy();
+  })
 });
