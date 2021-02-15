@@ -53,19 +53,4 @@ describe('HomePage', () => {
     let books = fixture.nativeElement.querySelectorAll('[data-test="book-item"]');
     expect(books.length).toEqual(3);
   })
-
-  it('should render the title of the book', () => {
-    let firstBook = fixture.nativeElement.querySelector('[data-test="book-item"]');
-    expect(firstBook.querySelector('[data-test="book-item-title"]').innerText).toEqual("book 1");
-  })
-
-  it('should render a description of the book', () => {
-    let firstBook = fixture.nativeElement.querySelector('[data-test="book-item"]');
-    expect(firstBook.querySelector('[data-test="book-item-description"]').innerText).toEqual("book 1 description");
-  })
-
-  it('should render the book id', () => {
-    let firstBook = fixture.nativeElement.querySelector('[data-test="book-item"]');
-    expect(firstBook.querySelector('[data-test="book-item-id"]').innerText).toEqual("BookID: 1");
-  })
 });
