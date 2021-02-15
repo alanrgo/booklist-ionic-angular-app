@@ -10,7 +10,7 @@ export class DataService {
   constructor(private httpClient: HttpClient ) { }
 
   getBooks$(): any {
-    return this.httpClient.get<any>('foo/bar');
+    return this.httpClient.get<any>('http://localhost:8000/api/books');
   }
 
 }

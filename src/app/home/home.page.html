@@ -19,7 +19,7 @@
     <div data-test="book-item" *ngFor="let book of books$ | async">
       <ion-card>
         <ion-card-header>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-subtitle data-test="book-item-id">BookID: {{book.id}}</ion-card-subtitle>
           <ion-card-title data-test="book-item-title">{{book.title}}</ion-card-title>
         </ion-card-header>
 

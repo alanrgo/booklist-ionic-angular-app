@@ -1,5 +1,6 @@
 export const BookFixture = [
   {
+    id: 1,
     title: "book 1",
     description: "book 1 description"
   },

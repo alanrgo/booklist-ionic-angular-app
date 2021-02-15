@@ -63,4 +63,9 @@ describe('HomePage', () => {
     let firstBook = fixture.nativeElement.querySelector('[data-test="book-item"]');
     expect(firstBook.querySelector('[data-test="book-item-description"]').innerText).toEqual("book 1 description");
   })
+
+  it('should render the book id', () => {
+    let firstBook = fixture.nativeElement.querySelector('[data-test="book-item"]');
+    expect(firstBook.querySelector('[data-test="book-item-id"]').innerText).toEqual("BookID: 1");
+  })
 });
