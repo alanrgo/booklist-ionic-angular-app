@@ -25,7 +25,7 @@ describe('DataService', () => {
     service = TestBed.inject(DataService);
     const spy = jasmine.createSpy('spy')
 
-    service.getBooks$().subscribe(spy);
+    service.getBooks().subscribe(spy);
 
     expect(spy).toHaveBeenCalledWith(booksMock);
   });

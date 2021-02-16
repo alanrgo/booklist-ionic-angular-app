@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { BookItemComponent } from '../book-item/book-item.component';
+import { BookCreationComponent } from '../book-creation/book-creation.component';
 
 
 @NgModule({
@@ -15,6 +16,6 @@ import { BookItemComponent } from '../book-item/book-item.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, BookItemComponent]
+  declarations: [HomePage, BookItemComponent, BookCreationComponent]
 })
 export class HomePageModule {}

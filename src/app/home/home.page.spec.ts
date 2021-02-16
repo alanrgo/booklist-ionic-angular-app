@@ -31,7 +31,7 @@ describe('HomePage', () => {
 
   beforeEach(() => {
     dataService = TestBed.inject(DataService) as jasmine.SpyObj<DataService>;
-    dataService.getBooks$.and.returnValue(of(mockedBooks))
+    dataService.getBooks.and.returnValue(of(mockedBooks))
     fixture.detectChanges();
   })
 

@@ -1,13 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title data-test='book-list-nav'>iBook</ion-title>
-    <ion-button data-test="create-book-item-button">
-      <ion-icon name="add-outline"></ion-icon>
-      <span>REGISTER BOOK</span>
-    </ion-button>
+
   </ion-toolbar>
 
 </ion-header>
+
+<router-outlet></router-outlet>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -15,11 +14,15 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <ion-grid>
     <div id="container">
       <h2 data-test="book-list-header">Book List</h2>
-      <div data-test="book-item" *ngFor="let book of books$ | async">
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <app-book-creation [registerClick]="registerBooksCallback"></app-book-creation>
+        </ion-col>
+      </ion-row>
+      <div data-test="book-item" *ngFor="let book of books">
         <ion-row>
           <ion-col size-md="6" offset-md="3">
             <app-book-item [book]="book"></app-book-item>
