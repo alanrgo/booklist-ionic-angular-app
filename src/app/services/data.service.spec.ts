@@ -29,4 +29,17 @@ describe('DataService', () => {
 
     expect(spy).toHaveBeenCalledWith(booksMock);
   });
+
+  it('should return a list of books after calling proper endpoint', () => {
+    httpClient = TestBed.inject(HttpClient);
+    const booksMock = BookFixture;
+    spyOn(httpClient, 'post').and.returnValue(of(booksMock))
+
+    service = TestBed.inject(DataService);
+    const spy = jasmine.createSpy('spy')
+
+    service.registerBook({title: "title", description: "description"}).subscribe(spy);
+
+    expect(spy).toHaveBeenCalledWith(booksMock);
+  });
 });

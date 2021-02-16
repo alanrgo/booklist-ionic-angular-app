@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-book-creation',
@@ -7,15 +8,27 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BookCreationComponent implements OnInit {
 
-  constructor() { }
+  bookCreationForm : FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   @Input()
   public registerClick: Function;
 
-  ngOnInit() {}
-
-  registerBook() {
-    this.registerClick();
+  ngOnInit() {
+    this.initializeForm();
   }
 
+  registerBook() {
+    let title = this.bookCreationForm.controls['title'].value;
+    let description = this.bookCreationForm.controls['description'].value;
+    this.registerClick({title, description});
+  }
+
+  initializeForm(): void {
+    this.bookCreationForm = this.formBuilder.group({
+      title: "",
+      description: ""
+    });
+  }
 }

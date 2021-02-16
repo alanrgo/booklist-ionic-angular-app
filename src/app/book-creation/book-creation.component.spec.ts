@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { BookCreationComponent } from './book-creation.component';
@@ -10,7 +11,7 @@ describe('BookCreationComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BookCreationComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), ReactiveFormsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(BookCreationComponent);

@@ -21,7 +21,10 @@ export class HomePage implements OnInit {
     });
   }
 
-  registerBooks() : void {
+  registerBooks(args: any) : void {
+    this.dataService.registerBook(args).subscribe(addedBook => {
+      this.books.push(addedBook)
+    })
     this.books.push({
       id: 4,
       title: "book 4",
