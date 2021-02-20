@@ -30,7 +30,7 @@ describe('DataService', () => {
     expect(spy).toHaveBeenCalledWith(booksMock);
   });
 
-  it('should return a list of books after calling proper endpoint', () => {
+  it('should call add book by calling proper endpoint', () => {
     httpClient = TestBed.inject(HttpClient);
     const booksMock = BookFixture;
     spyOn(httpClient, 'post').and.returnValue(of(booksMock))
@@ -41,5 +41,19 @@ describe('DataService', () => {
     service.registerBook({title: "title", description: "description"}).subscribe(spy);
 
     expect(spy).toHaveBeenCalledWith(booksMock);
+  });
+
+  it('should call delete book by calling proper endpoint', () => {
+    httpClient = TestBed.inject(HttpClient);
+    const args = {id: 1};
+    spyOn(httpClient, 'put').and.returnValue(of({}))
+
+    service = TestBed.inject(DataService);
+    const spy = jasmine.createSpy('spy');
+
+    service.deleteBook(args).subscribe(spy);
+
+    expect(spy).toHaveBeenCalledWith({});
+    expect(httpClient.put).toHaveBeenCalledWith(jasmine.any(String), args)
   });
 });

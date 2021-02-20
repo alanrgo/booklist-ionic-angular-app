@@ -10,8 +10,14 @@ export class BookItemComponent implements OnInit {
 
   @Input() book: Book;
 
+  @Input() deleteClick: Function;
+
   constructor() { }
 
   ngOnInit() {}
+
+  deleteBook() {
+    this.deleteClick({id: this.book.id})
+  }
 
 }

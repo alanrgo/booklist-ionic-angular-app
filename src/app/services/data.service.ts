@@ -16,4 +16,7 @@ export class DataService {
     return this.httpClient.post<any>('http://localhost:8000/api/books', args);
   }
 
+  deleteBook(args: any): Observable<any> {
+    return this.httpClient.put<any>('http://localhost:8000/api/books/delete', args)
+  }
 }

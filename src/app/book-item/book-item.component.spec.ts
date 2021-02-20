@@ -21,7 +21,6 @@ describe('BookItemComponent', () => {
     fixture.detectChanges();
   }));
 
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -47,10 +46,18 @@ describe('BookItemComponent', () => {
     expect(editButton.querySelector('[data-test="book-item-edit-icon"]')).toBeTruthy();
   })
 
-  it('should render edit button', () => {
-    let editButton = fixture.nativeElement.querySelector('[data-test="book-item-remove"]');
-    expect(editButton).toBeTruthy();
-    expect(editButton.querySelector('[data-test="book-item-remove-icon"]')).toBeTruthy();
+  it('should render delete button', () => {
+    let deleteButton = fixture.nativeElement.querySelector('[data-test="book-item-remove"]');
+    expect(deleteButton).toBeTruthy();
+    expect(deleteButton.querySelector('[data-test="book-item-remove-icon"]')).toBeTruthy();
   })
+
+  it('should call delete callback when clicking in delete button', () => {
+    spyOn(component, 'deleteBook')
+    let deleteButton = fixture.nativeElement.querySelector('[data-test="book-item-remove"]');
+    deleteButton.click()
+    expect(component.deleteBook).toHaveBeenCalledTimes(1)
+  })
+
 
 });
