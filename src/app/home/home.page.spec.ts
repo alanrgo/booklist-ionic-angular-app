@@ -41,7 +41,7 @@ describe('HomePage', () => {
 
   it('should render the book list title', () => {
     let header = fixture.nativeElement.querySelector('[data-test="book-list-header"');
-    expect(header.innerText).toEqual("Book List");
+    expect(header.innerText).toEqual("My Book List");
   })
 
   it('should render the book list app name', () => {
