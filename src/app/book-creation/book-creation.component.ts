@@ -23,6 +23,7 @@ export class BookCreationComponent implements OnInit {
     let title = this.bookCreationForm.controls['title'].value;
     let description = this.bookCreationForm.controls['description'].value;
     this.registerClick({title, description});
+    this.initializeForm();
   }
 
   initializeForm(): void {
