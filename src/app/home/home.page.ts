@@ -25,11 +25,6 @@ export class HomePage implements OnInit {
     this.dataService.registerBook(args).subscribe(addedBook => {
       this.books.push(addedBook)
     })
-    this.books.push({
-      id: 4,
-      title: "book 4",
-      description: "book 4 description"
-    })
   }
 
 }

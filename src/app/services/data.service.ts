@@ -13,7 +13,7 @@ export class DataService {
   }
 
   registerBook(args: any): Observable<any> {
-    return this.httpClient.post<any>('http://localhost:8000/api/books/add', args);
+    return this.httpClient.post<any>('http://localhost:8000/api/books', args);
   }
 
 }
