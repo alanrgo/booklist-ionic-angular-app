@@ -12,12 +12,30 @@ export class BookItemComponent implements OnInit {
 
   @Input() deleteClick: Function;
 
+  @Input() updateClick: Function;
+
+  updateBookCallback: Function;
+
+  isDisplayMode = true;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.updateBookCallback = this.updateBook.bind(this)
+  }
 
   deleteBook() {
     this.deleteClick({id: this.book.id})
+  }
+
+  updateBook(args) {
+    const bookParams = {...args, id: this.book.id}
+    this.updateClick(bookParams)
+    this.isDisplayMode = true;
+  }
+
+  switchToEditMode(){
+    this.isDisplayMode = false;
   }
 
 }

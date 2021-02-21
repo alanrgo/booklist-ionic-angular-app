@@ -21,7 +21,7 @@
       <div data-test="book-item" *ngFor="let book of books">
         <ion-row>
           <ion-col size-md="6" offset-md="3">
-            <app-book-item [book]="book" [deleteClick]="deleteBookCallback"></app-book-item>
+            <app-book-item [book]="book" [deleteClick]="deleteBookCallback" [updateClick]="updateBookCallback"></app-book-item>
           </ion-col>
         </ion-row>
       </div>

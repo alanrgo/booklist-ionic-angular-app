@@ -56,4 +56,18 @@ describe('DataService', () => {
     expect(spy).toHaveBeenCalledWith({});
     expect(httpClient.put).toHaveBeenCalledWith(jasmine.any(String), args)
   });
+
+  it('should call update book by calling proper endpoint', () => {
+    httpClient = TestBed.inject(HttpClient);
+    const args = BookFixture[0];
+    spyOn(httpClient, 'put').and.returnValue(of({}))
+
+    service = TestBed.inject(DataService);
+    const spy = jasmine.createSpy('spy');
+
+    service.updateBook(args).subscribe(spy);
+
+    expect(spy).toHaveBeenCalledWith({});
+    expect(httpClient.put).toHaveBeenCalledWith(jasmine.any(String), args)
+  });
 });
