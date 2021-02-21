@@ -15,7 +15,7 @@
   </div>
   <div *ngIf="!isDisplayMode">
     <ion-card-subtitle data-test="book-item-id">BookID: {{book.id}}</ion-card-subtitle>
-    <app-book-creation [registerClick]="updateBookCallback" [book]="book"></app-book-creation>
+    <app-book-creation [registerClick]="updateBookCallback" [book]="book" data-test="update-book-component"></app-book-creation>
   </div>
 
 </ion-card>

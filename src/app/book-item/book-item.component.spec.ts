@@ -46,6 +46,20 @@ describe('BookItemComponent', () => {
     expect(editButton.querySelector('[data-test="book-item-edit-icon"]')).toBeTruthy();
   })
 
+  it('should call switchToEditMode when clicking in edit button', () => {
+    spyOn(component, 'switchToEditMode')
+    let editButton = fixture.nativeElement.querySelector('[data-test="book-item-edit"]');
+    editButton.click()
+    expect(component.switchToEditMode).toHaveBeenCalledTimes(1)
+  })
+
+  it('should render book creation component when clicking in edit button', () => {
+    let editButton = fixture.nativeElement.querySelector('[data-test="book-item-edit"]');
+    editButton.click()
+    fixture.detectChanges()
+    expect(fixture.nativeElement.querySelector('[data-test="update-book-component"]')).toBeTruthy();
+  })
+
   it('should render delete button', () => {
     let deleteButton = fixture.nativeElement.querySelector('[data-test="book-item-remove"]');
     expect(deleteButton).toBeTruthy();
@@ -58,6 +72,5 @@ describe('BookItemComponent', () => {
     deleteButton.click()
     expect(component.deleteBook).toHaveBeenCalledTimes(1)
   })
-
 
 });
