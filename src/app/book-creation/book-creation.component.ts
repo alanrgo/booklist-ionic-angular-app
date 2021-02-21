@@ -19,6 +19,8 @@ export class BookCreationComponent implements OnInit {
   @Input()
   public book: Book;
 
+  public validated: boolean;
+
   ngOnInit() {
     this.initializeForm();
   }
@@ -36,5 +38,12 @@ export class BookCreationComponent implements OnInit {
       title: this.book ? this.book.title : "",
       description: this.book ? this.book.description : "",
     });
+    this.validated = false;
+  }
+
+  inputChange() : void {
+    let title = this.bookCreationForm.controls['title'].value;
+    let description = this.bookCreationForm.controls['description'].value;
+    this.validated = title != "" && description != ""
   }
 }
