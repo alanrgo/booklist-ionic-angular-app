@@ -17,7 +17,8 @@ describe('BookItemComponent', () => {
 
     fixture = TestBed.createComponent(BookItemComponent);
     component = fixture.componentInstance;
-    component.book = BookFixture[0] as Book
+    component.book = BookFixture[0] as Book;
+    component.isDisplayMode = true;
     fixture.detectChanges();
   }));
 
@@ -58,6 +59,16 @@ describe('BookItemComponent', () => {
     editButton.click()
     fixture.detectChanges()
     expect(fixture.nativeElement.querySelector('[data-test="update-book-component"]')).toBeTruthy();
+  })
+
+  it('should render switch back to display mode when callind update book', () => {
+    const doNothing = () => {}
+    component.isDisplayMode = false;
+    component.updateClick = doNothing
+    fixture.detectChanges();
+    component.updateBook(BookFixture[0]);
+
+    expect(component.isDisplayMode).toBeTrue();
   })
 
   it('should render delete button', () => {
